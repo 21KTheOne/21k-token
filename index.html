@@ -547,7 +547,7 @@
   </div>
 
   <div class="cta">
-    <a href="#buy" class="btn btn-gold">BUY $21K</a>
+    <a href="#buy" class="btn btn-gold" onclick="document.getElementById('buy').scrollIntoView({behavior:'smooth'});return false;">BUY $21K</a>
     <button class="btn btn-ghost" onclick="openWP()">READ THE WHITEPAPER</button>
     <a href="https://twitter.com/intent/tweet?text=You+missed+V1.+%2421K+%E2%80%94+21%2C000+tokens.+No+more.+Ever.+%23Solana+%2321K" target="_blank" class="btn btn-ghost">SHARE</a>
   </div>
@@ -634,7 +634,10 @@
     </div>
     <div class="wp-cell">
       <div class="wp-key">Contract Address</div>
-      <div class="wp-val" id="ca-display" style="font-size:0.9rem;color:var(--muted)">F4FaHT8M84uw36rq8B8wmFDkNT1SszMMexi2CV8Rtpuj</div>
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:0.3rem;">
+        <a href="https://solscan.io/token/F4FaHT8M84uw36rq8B8wmFDkNT1SszMMexi2CV8Rtpuj" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--gold);letter-spacing:0.03em;word-break:break-all;text-decoration:none;border-bottom:1px solid var(--gold-dim);padding-bottom:2px;line-height:1.8;">F4FaHT8M84uw36rq8B8wmFDkNT1SszMMexi2CV8Rtpuj</a>
+        <button onclick="navigator.clipboard.writeText('F4FaHT8M84uw36rq8B8wmFDkNT1SszMMexi2CV8Rtpuj');this.textContent='COPIED ✓';setTimeout(()=>this.textContent='COPY',1500)" style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;background:transparent;border:1px solid var(--gold-dim);color:var(--gold-dim);padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.2s;white-space:nowrap;flex-shrink:0;">COPY</button>
+      </div>
     </div>
   </div>
   <p style="font-size:0.62rem;color:var(--muted);letter-spacing:0.15em;line-height:2">
