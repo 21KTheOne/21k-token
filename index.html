@@ -726,6 +726,40 @@
   </div>
 </section>
 
+<!-- TREATISE -->
+<section class="section">
+  <div class="section-label">21,000 — A TREATISE ON SCARCITY</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;margin-bottom:1.5rem;">
+    <div>
+      <p style="font-size:0.75rem;color:rgba(240,230,204,0.45);line-height:2;margin-bottom:1.5rem;">A manifesto on scarcity, value, and the human obsession with the impossible. Philosophy. Mathematics. Emotion. Five chapters. No compromises.</p>
+      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
+        <span onclick="openTreatise()" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.2em;color:var(--gold-dim);border:1px solid var(--gold-dim);padding:0.5rem 1.5rem;transition:all 0.2s;display:inline-block;cursor:pointer;" onmouseover="this.style.color='var(--gold-bright)';this.style.borderColor='var(--gold)'" onmouseout="this.style.color='var(--gold-dim)';this.style.borderColor='var(--gold-dim)'">READ THE TREATISE →</span>
+      </div>
+    </div>
+    <div style="border:1px solid var(--border);padding:1.5rem;background:rgba(200,146,42,0.03);">
+      <div style="font-family:'VT323',monospace;font-size:1.2rem;color:var(--gold-dim);margin-bottom:0.8rem;">CHAPTERS</div>
+      <div style="font-size:0.58rem;color:rgba(240,230,204,0.3);line-height:2.2;letter-spacing:0.1em;">
+        I — The Primitive Obsession<br>
+        II — The First Digital Miracle<br>
+        III — The Mathematics of the Impossible<br>
+        IV — What It Means to Own the Impossible<br>
+        V — A Letter to the Skeptics
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATISE MODAL -->
+<div id="treatise-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:2000;flex-direction:column;align-items:center;justify-content:center;padding:2rem;">
+  <div style="width:100%;max-width:860px;height:90vh;display:flex;flex-direction:column;gap:1rem;">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);">21,000 — A TREATISE ON SCARCITY</span>
+      <button onclick="closeTreatise()" style="font-family:'IBM Plex Mono',monospace;background:transparent;border:1px solid var(--gold-dim);color:var(--muted);padding:0.4rem 1.2rem;font-size:0.6rem;letter-spacing:0.2em;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.color='var(--paper)'" onmouseout="this.style.color='var(--muted)'">[ CLOSE ]</button>
+    </div>
+    <iframe id="treatise-frame" src="" style="flex:1;width:100%;border:1px solid var(--border);background:#080808;" frameborder="0"></iframe>
+  </div>
+</div>
+
 <!-- YOUTUBE VIDEO -->
 <section class="section">
   <div class="section-label">THE STORY — WATCH</div>
@@ -889,6 +923,16 @@
   function openWP() { modal.style.display = 'flex'; }
   function closeWP() { modal.style.display = 'none'; }
   modal.addEventListener('click', e => { if (e.target === modal) closeWP(); });
+
+  // Treatise modal
+  const tModal = document.getElementById('treatise-modal');
+  const tFrame = document.getElementById('treatise-frame');
+  function openTreatise() {
+    tFrame.src = '21k-treatise.pdf#toolbar=0&navpanes=0';
+    tModal.style.display = 'flex';
+  }
+  function closeTreatise() { tModal.style.display = 'none'; tFrame.src = ''; }
+  tModal.addEventListener('click', e => { if (e.target === tModal) closeTreatise(); });
 </script>
 </body>
 </html>
