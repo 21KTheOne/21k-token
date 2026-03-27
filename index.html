@@ -34,7 +34,6 @@
     cursor: none;
   }
 
-  /* Cursor */
   #cur {
     position: fixed;
     width: 12px; height: 12px;
@@ -53,9 +52,7 @@
     transform: translate(-50%,-50%);
     box-shadow: 0 0 6px var(--gold);
   }
-  body:hover #cur { opacity: 1; }
 
-  /* Grain */
   .grain {
     position: fixed; inset: -50%;
     width: 200%; height: 200%;
@@ -70,7 +67,6 @@
     50%{transform:translate(1%,-1%)} 75%{transform:translate(-1%,-1%)}
   }
 
-  /* Scanlines subtle */
   .scan {
     position: fixed; inset: 0;
     background: repeating-linear-gradient(
@@ -81,7 +77,6 @@
     z-index: 499;
   }
 
-  /* Vignette */
   .vignette {
     position: fixed; inset: 0;
     background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.7) 100%);
@@ -89,7 +84,6 @@
     z-index: 498;
   }
 
-  /* TOPBAR */
   .topbar {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
@@ -122,7 +116,6 @@
   }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
@@ -180,7 +173,6 @@
   }
   .hero-sub .hl { color: var(--paper); }
 
-  /* SUPPLY BOX */
   .supply-box {
     display: inline-flex;
     flex-direction: column;
@@ -223,7 +215,6 @@
   }
   .supply-locked::before { content: '⬡ '; }
 
-  /* STATS */
   .stats {
     display: flex;
     gap: 0;
@@ -250,7 +241,6 @@
   .sv.gr { color: var(--green); }
   .sl { font-size: 0.58rem; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; }
 
-  /* MANIFESTO */
   .manifesto {
     max-width: 600px;
     margin-bottom: 4rem;
@@ -273,7 +263,6 @@
     line-height: 1.9;
   }
 
-  /* CTA */
   .cta {
     display: flex; gap: 1rem; flex-wrap: wrap;
     animation: fadein 0.7s 1.4s both;
@@ -314,7 +303,6 @@
   }
   .btn-ghost:hover { color: var(--paper); border-color: var(--gold-dim); background: var(--gold-glow); }
 
-  /* TIMELINE SECTION */
   .section {
     padding: 6rem 5vw;
     max-width: 1100px;
@@ -402,7 +390,6 @@
   .tag-now { color: var(--green); border-color: var(--green); background: rgba(39,174,96,0.05); }
   .tag-future { color: var(--muted); border-color: var(--border); }
 
-  /* WHITEPAPER SECTION */
   .wp-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -431,7 +418,6 @@
   .wp-val.none { color: var(--red); }
   .wp-val.locked { color: var(--green); }
 
-  /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
     padding: 2rem 5vw;
@@ -473,7 +459,6 @@
 <div id="cur"></div>
 <div id="cur2"></div>
 
-<!-- TOPBAR -->
 <header class="topbar">
   <div class="t-logo">$21K</div>
   <div class="t-right">
@@ -482,7 +467,6 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">GENESIS LAUNCH — SOLANA — 20.03.2026</div>
 
@@ -526,15 +510,15 @@
       <span class="sl">Mint Authority</span>
     </div>
     <div class="stat">
-      <span class="sv g">3</span>
+      <span class="sv g">7</span>
       <span class="sl">Holders</span>
     </div>
     <div class="stat">
-      <span class="sv g">2,900</span>
+      <span class="sv g">~1,490</span>
       <span class="sl">Available in Pool</span>
     </div>
     <div class="stat">
-      <span class="sv gr">4,450</span>
+      <span class="sv gr">6,550</span>
       <span class="sl">Tokens Locked</span>
     </div>
   </div>
@@ -615,30 +599,61 @@
   </div>
 </section>
 
-<!-- BE THE FIRST -->
+<!-- LOCK 2027 -->
+<section class="section">
+  <div class="section-label">4,450 TOKENS LOCKED UNTIL SEPTEMBER 2027</div>
+  <div style="background:rgba(39,174,96,0.06);border:1px solid rgba(39,174,96,0.25);padding:3rem;text-align:center;margin-bottom:2rem;">
+    <div style="font-family:'VT323',monospace;font-size:5rem;color:var(--green);text-shadow:0 0 40px rgba(39,174,96,0.5);line-height:1;margin-bottom:0.8rem;">4,450 $21K</div>
+    <div style="font-size:0.6rem;letter-spacing:0.3em;color:rgba(39,174,96,0.6);margin-bottom:1.5rem;">LOCKED ON-CHAIN — IRREVOCABLE — RELEASE : 01/09/2027</div>
+    <p style="font-size:0.75rem;color:rgba(240,230,204,0.45);line-height:2;max-width:600px;margin:0 auto 1.5rem;">21% of total supply locked on FluxBeam for 18 months. Nobody can touch them. Not even us.</p>
+    <a href="https://fluxbeam.xyz/app/tools/token_locker" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.2em;color:rgba(39,174,96,0.7);text-decoration:none;border:1px solid rgba(39,174,96,0.3);padding:0.5rem 1.5rem;transition:all 0.2s;display:inline-block;" onmouseover="this.style.color='var(--green)';this.style.borderColor='var(--green)'" onmouseout="this.style.color='rgba(39,174,96,0.7)';this.style.borderColor='rgba(39,174,96,0.3)'">🔒 VERIFY ON FLUXBEAM →</a>
+  </div>
+</section>
+
+<!-- LOCK 2036 — NEW -->
+<section class="section">
+  <div class="section-label">2,100 TOKENS LOCKED UNTIL MARCH 20, 2036 — NEW</div>
+  <div style="background:rgba(200,146,42,0.06);border:1px solid rgba(200,146,42,0.35);padding:3rem;text-align:center;margin-bottom:2rem;position:relative;">
+    <div style="position:absolute;top:-0.65rem;left:1.5rem;background:var(--bg);padding:0 0.6rem;font-size:0.58rem;letter-spacing:0.35em;color:var(--gold-dim);">CONVICTION LOCK</div>
+    <div style="font-family:'VT323',monospace;font-size:5rem;color:var(--gold-bright);text-shadow:0 0 40px rgba(200,146,42,0.6);line-height:1;margin-bottom:0.8rem;">2,100 $21K</div>
+    <div style="font-size:0.6rem;letter-spacing:0.3em;color:rgba(200,146,42,0.6);margin-bottom:1.5rem;">LOCKED ON-CHAIN — IRREVOCABLE — RELEASE : 20/03/2036</div>
+    <p style="font-size:0.75rem;color:rgba(240,230,204,0.45);line-height:2;max-width:640px;margin:0 auto 1.5rem;">
+      Exactly <strong style="color:var(--paper);">10 years</strong> from launch. 1/10 of total supply. Not because we had to.<br>
+      Because we believe.<br><br>
+      Satoshi's coins never moved. We are willing to wait too.<br>
+      <strong style="color:var(--gold-bright);">You can blame us for believing. You can never blame us for not trying.</strong>
+    </p>
+    <a href="https://fluxbeam.xyz/app/tools/token_locker" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.2em;color:var(--gold-dim);text-decoration:none;border:1px solid var(--gold-dim);padding:0.5rem 1.5rem;transition:all 0.2s;display:inline-block;" onmouseover="this.style.color='var(--gold-bright)';this.style.borderColor='var(--gold)'" onmouseout="this.style.color='var(--gold-dim)';this.style.borderColor='var(--gold-dim)'">🔒 VERIFY ON FLUXBEAM →</a>
+  </div>
+  <!-- Total locked summary -->
+  <div style="border:1px solid var(--border);padding:2rem;background:rgba(200,146,42,0.03);text-align:center;">
+    <div style="font-family:'VT323',monospace;font-size:3rem;color:var(--gold-bright);text-shadow:0 0 20px var(--gold);margin-bottom:0.5rem;">6,550 TOKENS LOCKED</div>
+    <div style="font-size:0.6rem;letter-spacing:0.3em;color:var(--muted);">31.2% OF TOTAL SUPPLY — IRREVOCABLE — ON-CHAIN</div>
+  </div>
+</section>
+
+<!-- PSYCHOLOGY -->
 <section class="section">
   <div class="section-label">THE PSYCHOLOGY OF SCARCITY</div>
   <div class="manifesto">
     <p>
-      25 people clicked. 0 external holders.<br>
-      That says everything.<br>
-      <strong>Everyone is watching. Nobody wants to be first.</strong>
+      Everyone is watching. Nobody wants to be first.<br>
+      <strong>That's always been true.</strong>
     </p>
     <div class="block-quote">
-      "1 token = $0.001944.<br>
-      That's all it takes.<br>
-      Someone will be holder #3.<br>
-      That person will remember this page."
+      "Thousands of BTC once bought a pizza.<br>
+      Nobody cared at the time.<br>
+      This is not a race. This is patience."
     </div>
     <p>
-      Thousands of BTC once bought a pizza.<br>
-      Nobody cared at the time.<br>
-      <strong>This is not a race. This is patience.</strong>
+      Day 8. 7 holders. Founder sold nothing.<br>
+      <strong>The market is alive.</strong> Buyers enter. Sellers exit.<br>
+      That's not a failure. That's a feature.
     </p>
   </div>
 </section>
 
-<!-- NO FAKE / PHILOSOPHY -->
+<!-- PHILOSOPHY -->
 <section class="section">
   <div class="section-label">THE PHILOSOPHY — NO SHORTCUTS</div>
   <div class="manifesto">
@@ -653,10 +668,8 @@
       <strong>Word of mouth. Patience. Integrity.</strong>
     </p>
     <div class="block-quote">
-      "No need to DM us for promotion.<br>
-      That's not the philosophy behind this project.<br>
-      It will take time. It will take patience.<br>
-      But at $0.002049, the opportunity is visible."
+      "You can blame us for believing.<br>
+      You can never blame us for not trying."
     </div>
   </div>
 </section>
@@ -684,17 +697,6 @@
   </div>
   <div style="text-align:center;">
     <a href="https://dex.coinmarketcap.com/fr/token/solana/F4FaHT8M84uw36rq8B8wmFDkNT1SszMMexi2CV8Rtpuj/" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.2em;color:var(--gold-dim);text-decoration:none;border:1px solid var(--gold-dim);padding:0.5rem 1.5rem;transition:all 0.2s;display:inline-block;" onmouseover="this.style.color='var(--gold-bright)';this.style.borderColor='var(--gold)'" onmouseout="this.style.color='var(--gold-dim)';this.style.borderColor='var(--gold-dim)'">VIEW ON COINMARKETCAP →</a>
-  </div>
-</section>
-
-<!-- FLUXBEAM LOCK -->
-<section class="section">
-  <div class="section-label">4,450 TOKENS LOCKED UNTIL SEPTEMBER 2027</div>
-  <div style="background:rgba(39,174,96,0.06);border:1px solid rgba(39,174,96,0.25);padding:3rem;text-align:center;margin-bottom:2rem;">
-    <div style="font-family:'VT323',monospace;font-size:5rem;color:var(--green);text-shadow:0 0 40px rgba(39,174,96,0.5);line-height:1;margin-bottom:0.8rem;">4,450 $21K</div>
-    <div style="font-size:0.6rem;letter-spacing:0.3em;color:rgba(39,174,96,0.6);margin-bottom:1.5rem;">LOCKED ON-CHAIN — IRREVOCABLE — RELEASE : 01/09/2027</div>
-    <p style="font-size:0.75rem;color:rgba(240,230,204,0.45);line-height:2;max-width:600px;margin:0 auto 1.5rem;">We didn't just say we wouldn't dump. We proved it. 4,450 tokens — 21% of total supply — locked on FluxBeam for 18 months. Nobody can touch them. Not even us.</p>
-    <a href="https://fluxbeam.xyz/app/tools/token_locker" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.2em;color:rgba(39,174,96,0.7);text-decoration:none;border:1px solid rgba(39,174,96,0.3);padding:0.5rem 1.5rem;transition:all 0.2s;display:inline-block;" onmouseover="this.style.color='var(--green)';this.style.borderColor='var(--green)'" onmouseout="this.style.color='rgba(39,174,96,0.7)';this.style.borderColor='rgba(39,174,96,0.3)'">🔒 VERIFY ON FLUXBEAM →</a>
   </div>
 </section>
 
@@ -749,18 +751,7 @@
   </div>
 </section>
 
-<!-- TREATISE MODAL -->
-<div id="treatise-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:2000;flex-direction:column;align-items:center;justify-content:center;padding:2rem;">
-  <div style="width:100%;max-width:860px;height:90vh;display:flex;flex-direction:column;gap:1rem;">
-    <div style="display:flex;justify-content:space-between;align-items:center;">
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);">21,000 — A TREATISE ON SCARCITY</span>
-      <button onclick="closeTreatise()" style="font-family:'IBM Plex Mono',monospace;background:transparent;border:1px solid var(--gold-dim);color:var(--muted);padding:0.4rem 1.2rem;font-size:0.6rem;letter-spacing:0.2em;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.color='var(--paper)'" onmouseout="this.style.color='var(--muted)'">[ CLOSE ]</button>
-    </div>
-    <iframe id="treatise-frame" src="" style="flex:1;width:100%;border:1px solid var(--border);background:#080808;" frameborder="0"></iframe>
-  </div>
-</div>
-
-<!-- YOUTUBE VIDEO -->
+<!-- YOUTUBE -->
 <section class="section">
   <div class="section-label">THE STORY — WATCH</div>
   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border:1px solid var(--border);background:var(--bg);">
@@ -825,19 +816,39 @@
     </div>
     <div class="wp-cell">
       <div class="wp-key">Available in Pool</div>
-      <div class="wp-val" style="color:var(--gold-bright);">2,900</div>
+      <div class="wp-val" style="color:var(--gold-bright);">~1,490</div>
     </div>
     <div class="wp-cell">
       <div class="wp-key">Holders</div>
-      <div class="wp-val" style="color:var(--gold-bright);">3</div>
+      <div class="wp-val" style="color:var(--gold-bright);">7</div>
     </div>
     <div class="wp-cell">
-      <div class="wp-key">Tokens Locked</div>
+      <div class="wp-key">Lock #1 — FluxBeam</div>
       <div class="wp-val locked">4,450</div>
     </div>
     <div class="wp-cell">
-      <div class="wp-key">Lock Expiry</div>
+      <div class="wp-key">Lock #1 Expiry</div>
       <div class="wp-val locked">09/2027</div>
+    </div>
+    <div class="wp-cell">
+      <div class="wp-key">Lock #2 — Conviction</div>
+      <div class="wp-val" style="color:var(--gold-bright);">2,100</div>
+    </div>
+    <div class="wp-cell">
+      <div class="wp-key">Lock #2 Expiry</div>
+      <div class="wp-val" style="color:var(--gold-bright);">03/2036</div>
+    </div>
+    <div class="wp-cell">
+      <div class="wp-key">Total Locked</div>
+      <div class="wp-val locked">6,550</div>
+    </div>
+    <div class="wp-cell">
+      <div class="wp-key">% Supply Locked</div>
+      <div class="wp-val locked">31.2%</div>
+    </div>
+    <div class="wp-cell">
+      <div class="wp-key">Founder Sold</div>
+      <div class="wp-val locked">0</div>
     </div>
     <div class="wp-cell">
       <div class="wp-key">Contract Address</div>
@@ -853,7 +864,6 @@
   </p>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="f-logo">$21K</div>
   <span>21,000 TOKENS — SOLANA — 20.03.2026</span>
@@ -861,7 +871,7 @@
 </footer>
 
 <!-- WHITEPAPER MODAL -->
-<div id="wp-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:1000;display:none;align-items:center;justify-content:center;padding:2rem;">
+<div id="wp-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:1000;align-items:center;justify-content:center;padding:2rem;">
   <div style="max-width:580px;width:100%;border:1px solid var(--gold-dim);padding:3rem;background:var(--bg);position:relative;font-family:'IBM Plex Mono',monospace;">
     <div style="position:absolute;top:-0.65rem;left:1rem;background:var(--bg);padding:0 0.5rem;font-size:0.58rem;letter-spacing:0.3em;color:var(--gold-dim)">// WHITEPAPER — v0.1 — FINAL</div>
     <div style="font-family:'VT323',monospace;font-size:3rem;color:var(--gold-bright);margin-bottom:1.5rem;text-shadow:0 0 30px var(--gold)">$21K GENESIS TOKEN</div>
@@ -871,12 +881,22 @@
       "Bitcoin had 21,000,000 tokens.<br>$21K has 21,000.<br>You do the math."
     </div>
     <p style="font-size:0.58rem;color:rgba(240,230,204,0.2);letter-spacing:0.1em;line-height:2;margin-bottom:1.5rem">NOT FINANCIAL ADVICE. NOT AN INVESTMENT. A SOCIAL EXPERIMENT IN DIGITAL SCARCITY. YOU MAY LOSE EVERYTHING.</p>
-    <button onclick="closeWP()" style="font-family:'IBM Plex Mono',monospace;background:transparent;border:1px solid var(--gold-dim);color:var(--muted);padding:0.7rem 2rem;font-size:0.7rem;letter-spacing:0.25em;cursor:none;transition:all 0.2s" onmouseover="this.style.color='var(--paper)'" onmouseout="this.style.color='var(--muted)'">[ CLOSE ]</button>
+    <button onclick="closeWP()" style="font-family:'IBM Plex Mono',monospace;background:transparent;border:1px solid var(--gold-dim);color:var(--muted);padding:0.7rem 2rem;font-size:0.7rem;letter-spacing:0.25em;cursor:pointer;transition:all 0.2s" onmouseover="this.style.color='var(--paper)'" onmouseout="this.style.color='var(--muted)'">[ CLOSE ]</button>
+  </div>
+</div>
+
+<!-- TREATISE MODAL -->
+<div id="treatise-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:2000;flex-direction:column;align-items:center;justify-content:center;padding:2rem;">
+  <div style="width:100%;max-width:860px;height:90vh;display:flex;flex-direction:column;gap:1rem;">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);">21,000 — A TREATISE ON SCARCITY</span>
+      <button onclick="closeTreatise()" style="font-family:'IBM Plex Mono',monospace;background:transparent;border:1px solid var(--gold-dim);color:var(--muted);padding:0.4rem 1.2rem;font-size:0.6rem;letter-spacing:0.2em;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.color='var(--paper)'" onmouseout="this.style.color='var(--muted)'">[ CLOSE ]</button>
+    </div>
+    <iframe id="treatise-frame" src="" style="flex:1;width:100%;border:1px solid var(--border);background:#080808;" frameborder="0"></iframe>
   </div>
 </div>
 
 <script>
-  // Cursor
   const cur = document.getElementById('cur');
   const cur2 = document.getElementById('cur2');
   let mx = 0, my = 0;
@@ -889,12 +909,7 @@
       cur.style.top = my + 'px';
     }, 80);
   });
-  document.querySelectorAll('.btn, button, a').forEach(el => {
-    el.addEventListener('mouseenter', () => cur.classList.add('big'));
-    el.addEventListener('mouseleave', () => cur.classList.remove('big'));
-  });
 
-  // Counter animation
   const el = document.getElementById('counter');
   const target = 21000;
   const dur = 2000;
@@ -908,7 +923,6 @@
   }
   setTimeout(() => requestAnimationFrame(tick), 600);
 
-  // Block ticker
   let blk = 300000000 + Math.floor(Math.random() * 50000000);
   const blkEl = document.getElementById('blk');
   function updateBlk() {
@@ -918,13 +932,11 @@
   updateBlk();
   setInterval(updateBlk, 400);
 
-  // Whitepaper modal
   const modal = document.getElementById('wp-modal');
   function openWP() { modal.style.display = 'flex'; }
   function closeWP() { modal.style.display = 'none'; }
   modal.addEventListener('click', e => { if (e.target === modal) closeWP(); });
 
-  // Treatise modal
   const tModal = document.getElementById('treatise-modal');
   const tFrame = document.getElementById('treatise-frame');
   function openTreatise() {
