@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$21K — The Shop</title>
+<meta name="description" content="Wear the conviction. $21K official merch. Print on demand.">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080808;--paper:#f0e6cc;--gold:#c8922a;--gold-bright:#f0b43c;--gold-dim:#5a3f10;--gold-glow:rgba(200,146,42,0.12);--red:#c0392b;--green:#27ae60;--border:rgba(200,146,42,0.2);--muted:rgba(240,230,204,0.3);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Mono',monospace;background:var(--bg);color:var(--paper);overflow-x:hidden;cursor:none;}
+#cur{position:fixed;width:12px;height:12px;border:1px solid var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s;}
+#cur2{position:fixed;width:4px;height:4px;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 6px var(--gold);}
+.grain{position:fixed;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.035;pointer-events:none;z-index:500;animation:grainmove .4s steps(1) infinite;}
+@keyframes grainmove{0%{transform:translate(0,0)}25%{transform:translate(-1%,1%)}50%{transform:translate(1%,-1%)}75%{transform:translate(-1%,-1%)}}
+.scan{position:fixed;inset:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px);pointer-events:none;z-index:499;}
+.vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.7) 100%);pointer-events:none;z-index:498;}
+@keyframes fadein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.75rem 5vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);background:rgba(8,8,8,.95);backdrop-filter:blur(16px);font-size:.6rem;letter-spacing:.2em;}
+.nav-logo{font-family:'VT323',monospace;font-size:1.4rem;color:var(--gold-bright);text-shadow:0 0 20px var(--gold);text-decoration:none;}
+.nav-links{display:flex;gap:1.8rem;}
+.nav-links a{color:var(--muted);text-decoration:none;letter-spacing:.2em;font-size:.58rem;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-bright);}
+.live-dot{display:inline-block;width:6px;height:6px;background:var(--green);border-radius:50%;box-shadow:0 0 8px var(--green);animation:blink 1.5s ease-in-out infinite;margin-right:.3rem;}
+.page{padding:8rem 5vw 5rem;max-width:1100px;margin:0 auto;}
+.page-title{font-family:'VT323',monospace;font-size:clamp(3rem,10vw,7rem);color:var(--gold-bright);text-shadow:0 0 40px var(--gold);line-height:.9;margin-bottom:.5rem;animation:fadein .7s .3s both;}
+.page-sub{font-size:.62rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;margin-bottom:1.5rem;animation:fadein .5s .5s both;}
+.page-sub::before{content:'// ';color:var(--gold);}
+
+/* BANNER */
+.banner{background:rgba(200,146,42,.04);border:1px solid rgba(200,146,42,.2);padding:2rem 2.5rem;margin-bottom:3rem;position:relative;animation:fadein .5s .6s both;}
+.banner::before{content:'PRINT ON DEMAND — NO STOCK — NO INVESTMENT';position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 .8rem;font-size:.5rem;letter-spacing:.3em;color:var(--gold-dim);white-space:nowrap;}
+.banner-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.banner-text{font-size:.65rem;color:var(--muted);letter-spacing:.12em;line-height:2;}
+.banner-text strong{color:var(--paper);}
+.banner-cta{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.25em;color:var(--gold-dim);text-decoration:none;border:1px solid var(--gold-dim);padding:.6rem 1.5rem;transition:all .2s;display:inline-block;white-space:nowrap;}
+.banner-cta:hover{color:var(--gold-bright);border-color:var(--gold);}
+
+/* PRODUCT GRID */
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2.5rem;}
+.product{background:var(--bg);padding:2rem;display:flex;flex-direction:column;gap:.8rem;transition:background .2s;}
+.product:hover{background:rgba(200,146,42,.04);}
+.product-tag{font-size:.52rem;letter-spacing:.28em;color:var(--gold-dim);text-transform:uppercase;}
+.product-name{font-family:'VT323',monospace;font-size:2rem;color:var(--paper);line-height:1.1;}
+.product-desc{font-size:.63rem;color:var(--muted);line-height:1.9;flex:1;}
+.product-price{font-family:'VT323',monospace;font-size:1.5rem;color:var(--gold-bright);}
+.product-shipping{font-size:.52rem;color:rgba(240,230,204,.2);letter-spacing:.12em;}
+.product-btn{display:inline-block;margin-top:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;padding:.7rem 1.5rem;background:var(--gold);color:var(--bg);font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .2s;align-self:flex-start;}
+.product-btn:hover{box-shadow:0 0 20px var(--gold);}
+
+/* VISIT ALL */
+.visit-all{text-align:center;padding:2rem;border:1px solid var(--border);background:rgba(200,146,42,.02);}
+.visit-all p{font-size:.65rem;color:var(--muted);letter-spacing:.15em;margin-bottom:1.2rem;line-height:2;}
+.visit-all a{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.3em;color:var(--gold-dim);text-decoration:none;border:1px solid var(--gold-dim);padding:.8rem 2rem;transition:all .2s;display:inline-block;}
+.visit-all a:hover{color:var(--gold-bright);border-color:var(--gold);}
+
+footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.58rem;letter-spacing:.18em;color:rgba(240,230,204,.12);}
+footer .f-logo{font-family:'VT323',monospace;font-size:1.1rem;color:var(--gold-dim);}
+@media(max-width:600px){.page{padding:7rem 1.5rem 3rem;}.nav-links{display:none;}.products{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="grain"></div><div class="scan"></div><div class="vignette"></div>
+<div id="cur"></div><div id="cur2"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">$21K</a>
+  <div class="nav-links">
+    <a href="index.html">HOME</a>
+    <a href="token.html">TOKEN</a>
+    <a href="story.html">STORY</a>
+    <a href="shop.html" class="active">SHOP</a>
+    <a href="holders.html">HOLDERS</a>
+  </div>
+  <span style="font-size:.55rem;letter-spacing:.2em;color:var(--muted);"><span class="live-dot"></span>LIVE</span>
+</nav>
+
+<div class="page">
+  <div class="page-title">THE<br>SHOP</div>
+  <div class="page-sub">Wear the conviction.</div>
+
+  <div class="banner">
+    <div class="banner-inner">
+      <div class="banner-text">
+        <strong>Not a brand. Not a merch drop.</strong><br>
+        Print on demand · No stock · No investment required<br>
+        Order → Manufactured → Shipped directly to you · EUR / USD
+      </div>
+      <a href="https://the21kshop.printify.me" target="_blank" class="banner-cta">VISIT THE STORE →</a>
+    </div>
+  </div>
+
+  <div class="products">
+    <!-- T-shirt Noir -->
+    <div class="product">
+      <div class="product-tag">T-Shirt · Black · Unisex</div>
+      <div class="product-name">$21K — First Holders</div>
+      <div class="product-desc">
+        "I was one of the first $21K holders."<br>
+        Gold print on black. Face + back.<br>
+        Contract address printed on reverse.
+      </div>
+      <div class="product-price">$39.45</div>
+      <div class="product-shipping">+ shipping · 30 days return · Powered by Printify</div>
+      <a href="https://the21kshop.printify.me/product/27607817" target="_blank" class="product-btn">BUY NOW →</a>
+    </div>
+
+    <!-- Hoodie -->
+    <div class="product">
+      <div class="product-tag">Hoodie · Black · Unisex</div>
+      <div class="product-name">$21K Hoodie</div>
+      <div class="product-desc">
+        $21K logo front · Philosophy back.<br>
+        "Not for trying." in white.<br>
+        $21K vertical on right sleeve.
+      </div>
+      <div class="product-price">$57.75</div>
+      <div class="product-shipping">+ shipping · 30 days return · Powered by Printify</div>
+      <a href="https://the21kshop.printify.me/product/27607816" target="_blank" class="product-btn">BUY NOW →</a>
+    </div>
+
+    <!-- Cap -->
+    <div class="product">
+      <div class="product-tag">Cap · Embroidered · Black</div>
+      <div class="product-name">$21K Cap</div>
+      <div class="product-desc">
+        $21K embroidered front.<br>
+        21,000 TOKENS · SOLANA<br>
+        Black. One size.
+      </div>
+      <div class="product-price">$29.65</div>
+      <div class="product-shipping">+ shipping · 30 days return · Powered by Printify</div>
+      <a href="https://the21kshop.printify.me/product/27607814" target="_blank" class="product-btn">BUY NOW →</a>
+    </div>
+  </div>
+
+  <div class="visit-all">
+    <p>More products coming.<br>Poster · Stickers · White T-shirt · Other colors.</p>
+    <a href="https://the21kshop.printify.me" target="_blank">VIEW ALL AT THE21KSHOP.PRINTIFY.ME →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo">$21K</div>
+  <span>21,000 TOKENS — SOLANA — 20.03.2026</span>
+  <span>NO ROADMAP. NO PROMISES. NO MORE TOKENS. EVER.</span>
+</footer>
+
+<script>
+  const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+  document.addEventListener('mousemove',e=>{cur2.style.left=e.clientX+'px';cur2.style.top=e.clientY+'px';setTimeout(()=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';},80);});
+</script>
+</body>
+</html>

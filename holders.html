@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$21K — The Holders</title>
+<meta name="description" content="7 holders. The pioneers. The first believers.">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080808;--paper:#f0e6cc;--gold:#c8922a;--gold-bright:#f0b43c;--gold-dim:#5a3f10;--gold-glow:rgba(200,146,42,0.12);--red:#c0392b;--green:#27ae60;--border:rgba(200,146,42,0.2);--muted:rgba(240,230,204,0.3);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Mono',monospace;background:var(--bg);color:var(--paper);overflow-x:hidden;cursor:none;}
+#cur{position:fixed;width:12px;height:12px;border:1px solid var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s;}
+#cur2{position:fixed;width:4px;height:4px;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 6px var(--gold);}
+.grain{position:fixed;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.035;pointer-events:none;z-index:500;animation:grainmove .4s steps(1) infinite;}
+@keyframes grainmove{0%{transform:translate(0,0)}25%{transform:translate(-1%,1%)}50%{transform:translate(1%,-1%)}75%{transform:translate(-1%,-1%)}}
+.scan{position:fixed;inset:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px);pointer-events:none;z-index:499;}
+.vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.7) 100%);pointer-events:none;z-index:498;}
+@keyframes fadein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.75rem 5vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);background:rgba(8,8,8,.95);backdrop-filter:blur(16px);font-size:.6rem;letter-spacing:.2em;}
+.nav-logo{font-family:'VT323',monospace;font-size:1.4rem;color:var(--gold-bright);text-shadow:0 0 20px var(--gold);text-decoration:none;}
+.nav-links{display:flex;gap:1.8rem;}
+.nav-links a{color:var(--muted);text-decoration:none;letter-spacing:.2em;font-size:.58rem;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-bright);}
+.live-dot{display:inline-block;width:6px;height:6px;background:var(--green);border-radius:50%;box-shadow:0 0 8px var(--green);animation:blink 1.5s ease-in-out infinite;margin-right:.3rem;}
+.page{padding:8rem 5vw 5rem;max-width:1100px;margin:0 auto;}
+.page-title{font-family:'VT323',monospace;font-size:clamp(3rem,10vw,7rem);color:var(--gold-bright);text-shadow:0 0 40px var(--gold);line-height:.9;margin-bottom:.5rem;animation:fadein .7s .3s both;}
+.page-sub{font-size:.62rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;margin-bottom:4rem;animation:fadein .5s .5s both;}
+.page-sub::before{content:'// ';color:var(--gold);}
+.section{margin-bottom:4rem;border-top:1px solid var(--border);padding-top:3rem;}
+.section-label{font-size:.6rem;letter-spacing:.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:2rem;}
+.section-label::before{content:'// ';color:var(--gold);}
+
+/* 7 CANDLES */
+.candles{display:flex;justify-content:center;gap:2.5rem;align-items:flex-end;padding:3rem 0;flex-wrap:wrap;}
+.candle{display:flex;flex-direction:column;align-items:center;gap:0;}
+.flame{width:3px;border-radius:50% 50% 20% 20%;background:linear-gradient(180deg,rgba(255,220,100,.95) 0%,rgba(255,150,0,.8) 60%,transparent 100%);box-shadow:0 0 8px rgba(255,200,0,.8),0 0 20px rgba(255,150,0,.4);position:relative;}
+.flame::before{content:'';position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);width:6px;height:6px;background:#FFD700;border-radius:50%;box-shadow:0 0 12px #FFD700,0 0 24px rgba(255,200,0,.6);}
+.wick{width:8px;background:linear-gradient(90deg,rgba(255,255,255,.15),rgba(255,255,255,.08),rgba(255,255,255,.15));}
+.base{width:14px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;}
+.candle-num{font-family:'VT323',monospace;font-size:1rem;color:rgba(255,215,0,.4);margin-top:.5rem;letter-spacing:.1em;}
+
+/* STATS ROW */
+.stats-row{display:flex;gap:0;border:1px solid var(--border);flex-wrap:wrap;margin-bottom:2rem;}
+.stat{flex:1;min-width:130px;padding:1.5rem;text-align:center;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.sv{font-family:'VT323',monospace;font-size:2.2rem;display:block;margin-bottom:.2rem;}
+.sv.g{color:var(--gold-bright);text-shadow:0 0 15px var(--gold);}
+.sv.gr{color:var(--green);}
+.sv.r{color:var(--red);}
+.sl{font-size:.52rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;}
+
+/* CERTIFICATES */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem;}
+.cert{background:var(--bg);padding:1.8rem;position:relative;}
+.cert::before{content:'CERTIFICATE';position:absolute;top:-.55rem;left:1rem;background:var(--bg);padding:0 .5rem;font-size:.48rem;letter-spacing:.3em;color:var(--gold-dim);}
+.cert-num{font-family:'VT323',monospace;font-size:1.1rem;color:var(--gold-dim);margin-bottom:.5rem;letter-spacing:.1em;}
+.cert-addr{font-size:.58rem;color:var(--muted);letter-spacing:.05em;margin-bottom:.5rem;word-break:break-all;}
+.cert-tokens{font-family:'VT323',monospace;font-size:2rem;color:var(--gold-bright);text-shadow:0 0 15px var(--gold);}
+.cert-label{font-size:.5rem;color:rgba(240,230,204,.2);letter-spacing:.15em;text-transform:uppercase;margin-top:.3rem;}
+.cert-status{display:inline-block;margin-top:.8rem;font-size:.5rem;letter-spacing:.2em;padding:.2rem .6rem;border:1px solid;color:var(--gold-dim);border-color:var(--gold-dim);}
+
+/* DAY LOG */
+.log{display:flex;flex-direction:column;gap:0;}
+.log-item{display:flex;gap:1.5rem;padding:1.2rem 0;border-bottom:1px solid rgba(200,146,42,.06);align-items:baseline;}
+.log-day{font-family:'VT323',monospace;font-size:1.2rem;color:var(--gold-dim);min-width:4rem;}
+.log-date{font-size:.52rem;color:rgba(240,230,204,.2);min-width:8rem;letter-spacing:.08em;}
+.log-text{font-size:.65rem;color:var(--muted);line-height:1.8;}
+.log-text strong{color:var(--paper);}
+
+/* BUBBLEMAPS CTA */
+.bubble-cta{background:rgba(200,146,42,.04);border:1px solid var(--border);padding:2rem;text-align:center;}
+.bubble-cta p{font-size:.65rem;color:var(--muted);letter-spacing:.12em;line-height:2;margin-bottom:1.2rem;}
+.bubble-cta a{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.22em;color:var(--gold-dim);text-decoration:none;border:1px solid var(--gold-dim);padding:.5rem 1.5rem;transition:all .2s;display:inline-block;}
+.bubble-cta a:hover{color:var(--gold-bright);border-color:var(--gold);}
+
+footer{border-top:1px solid var(--border);padding:2rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.58rem;letter-spacing:.18em;color:rgba(240,230,204,.12);}
+footer .f-logo{font-family:'VT323',monospace;font-size:1.1rem;color:var(--gold-dim);}
+@media(max-width:600px){.page{padding:7rem 1.5rem 3rem;}.nav-links{display:none;}.stats-row{flex-direction:column;}.stat{border-right:none;border-bottom:1px solid var(--border);}}
+</style>
+</head>
+<body>
+<div class="grain"></div><div class="scan"></div><div class="vignette"></div>
+<div id="cur"></div><div id="cur2"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">$21K</a>
+  <div class="nav-links">
+    <a href="index.html">HOME</a>
+    <a href="token.html">TOKEN</a>
+    <a href="story.html">STORY</a>
+    <a href="shop.html">SHOP</a>
+    <a href="holders.html" class="active">HOLDERS</a>
+  </div>
+  <span style="font-size:.55rem;letter-spacing:.2em;color:var(--muted);"><span class="live-dot"></span>LIVE</span>
+</nav>
+
+<div class="page">
+  <div class="page-title">THE<br>HOLDERS</div>
+  <div class="page-sub">Seven pioneers. No Telegram. No tips. Just conviction.</div>
+
+  <!-- 7 CANDLES -->
+  <div class="section">
+    <div class="section-label">THE SEVEN — DAY 8 — 27.03.2026</div>
+    <div class="candles">
+      <div class="candle">
+        <div class="flame" style="height:28px;"></div>
+        <div class="wick" style="height:55px;"></div>
+        <div class="base"></div>
+        <div class="candle-num">#1</div>
+      </div>
+      <div class="candle">
+        <div class="flame" style="height:22px;"></div>
+        <div class="wick" style="height:70px;"></div>
+        <div class="base"></div>
+        <div class="candle-num">#2</div>
+      </div>
+      <div class="candle">
+        <div class="flame" style="height:32px;"></div>
+        <div class="wick" style="height:45px;"></div>
+        <div class="base"></div>
+        <div class="candle-num">#3</div>
+      </div>
+      <div class="candle">
+        <div class="flame" style="height:30px;box-shadow:0 0 16px rgba(255,220,0,1),0 0 40px rgba(255,180,0,.6);"></div>
+        <div class="wick" style="height:80px;background:linear-gradient(90deg,rgba(255,215,0,.25),rgba(255,215,0,.12),rgba(255,215,0,.25));"></div>
+        <div class="base" style="background:rgba(255,215,0,.15);"></div>
+        <div class="candle-num" style="color:var(--gold-bright);">#4</div>
+      </div>
+      <div class="candle">
+        <div class="flame" style="height:20px;"></div>
+        <div class="wick" style="height:60px;"></div>
+        <div class="base"></div>
+        <div class="candle-num">#5</div>
+      </div>
+      <div class="candle">
+        <div class="flame" style="height:26px;"></div>
+        <div class="wick" style="height:50px;"></div>
+        <div class="base"></div>
+        <div class="candle-num">#6</div>
+      </div>
+      <div class="candle">
+        <div class="flame" style="height:18px;"></div>
+        <div class="wick" style="height:65px;"></div>
+        <div class="base"></div>
+        <div class="candle-num">#7</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.62rem;color:rgba(240,230,204,.25);letter-spacing:.2em;margin-top:1rem;">No Telegram. No Discord. No announcement.<br>They found it on-chain. Independently.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="section">
+    <div class="section-label">LIVE STATS — DAY 8</div>
+    <div class="stats-row">
+      <div class="stat"><span class="sv g">7</span><span class="sl">Holders</span></div>
+      <div class="stat"><span class="sv g">10</span><span class="sl">Transactions</span></div>
+      <div class="stat"><span class="sv g">7</span><span class="sl">Buys</span></div>
+      <div class="stat"><span class="sv r">3</span><span class="sl">Sells</span></div>
+      <div class="stat"><span class="sv gr">0</span><span class="sl">Founder Sold</span></div>
+      <div class="stat"><span class="sv g">$3.32</span><span class="sl">Price</span></div>
+      <div class="stat"><span class="sv g">$69K</span><span class="sl">Market Cap</span></div>
+    </div>
+    <div class="bubble-cta">
+      <p>BubbleMaps — Day 8 — Zero coordinated wallets. Zero sniper clusters.<br>Clean since genesis.</p>
+      <a href="https://v2.bubblemaps.io/map?address=F4FaHT8M84uw36rq8B8wmFDkNT1SszMMexi2CV8Rtpuj&chain=solana" target="_blank">🗺️ VERIFY ON BUBBLEMAPS →</a>
+    </div>
+  </div>
+
+  <!-- CERTIFICATES TIER 1 -->
+  <div class="section">
+    <div class="section-label">TIER 1 CERTIFICATES — PENDING DELIVERY</div>
+    <p style="font-size:.65rem;color:var(--muted);line-height:2;margin-bottom:2rem;">The first external holders who bought ≥1 token before Day 5. Three certificates pending.<br>If your wallet is below — DM us on X to claim yours.</p>
+    <div class="cert-grid">
+      <div class="cert">
+        <div class="cert-num">CERTIFICATE #001</div>
+        <div class="cert-addr">HbtM1u...vVuP</div>
+        <div class="cert-tokens">2,017</div>
+        <div class="cert-label">tokens held at Tier 1</div>
+        <div class="cert-status">⏳ PENDING CONTACT</div>
+      </div>
+      <div class="cert">
+        <div class="cert-num">CERTIFICATE #002</div>
+        <div class="cert-addr">BuGvUt...GrfX</div>
+        <div class="cert-tokens">24</div>
+        <div class="cert-label">tokens held at Tier 1</div>
+        <div class="cert-status">⏳ PENDING CONTACT</div>
+      </div>
+      <div class="cert">
+        <div class="cert-num">CERTIFICATE #003</div>
+        <div class="cert-addr">Ew1TX9...ki3j</div>
+        <div class="cert-tokens">860</div>
+        <div class="cert-label">tokens held at Tier 1</div>
+        <div class="cert-status">⏳ PENDING CONTACT</div>
+      </div>
+    </div>
+    <p style="font-size:.58rem;color:rgba(240,230,204,.2);letter-spacing:.12em;line-height:2;">To claim your certificate: DM <a href="https://twitter.com/the21ktoken" target="_blank" style="color:var(--gold-dim);text-decoration:none;">@the21ktoken</a> on X with your wallet address. On-chain verification required.</p>
+  </div>
+
+  <!-- DAY LOG -->
+  <div class="section">
+    <div class="section-label">DAY LOG — FROM GENESIS</div>
+    <div class="log">
+      <div class="log-item">
+        <div class="log-day">Day 1</div>
+        <div class="log-date">20.03.2026</div>
+        <div class="log-text">Launch. <strong>No announcement.</strong> Pool opened on Meteora at $0.002. Nobody came.</div>
+      </div>
+      <div class="log-item">
+        <div class="log-day">Day 2</div>
+        <div class="log-date">21.03.2026</div>
+        <div class="log-text">First external holder. Found it independently. On-chain.</div>
+      </div>
+      <div class="log-item">
+        <div class="log-day">Day 4</div>
+        <div class="log-date">23.03.2026</div>
+        <div class="log-text"><strong>Tier 1 closed.</strong> 6 wallets. None sold.</div>
+      </div>
+      <div class="log-item">
+        <div class="log-day">Day 5</div>
+        <div class="log-date">24.03.2026</div>
+        <div class="log-text">First sell. 2 tokens. Price dropped — then recovered. <strong>Experiment no longer theoretical.</strong></div>
+      </div>
+      <div class="log-item">
+        <div class="log-day">Day 6</div>
+        <div class="log-date">25.03.2026</div>
+        <div class="log-text">Second sell. 4 tokens. Exit at +449%. <strong>Price held.</strong></div>
+      </div>
+      <div class="log-item">
+        <div class="log-day">Day 7</div>
+        <div class="log-date">26.03.2026</div>
+        <div class="log-text">New holder. 7th wallet. YouTube video: 510 views. <strong>Seven holders.</strong></div>
+      </div>
+      <div class="log-item">
+        <div class="log-day">Day 8</div>
+        <div class="log-date">27.03.2026</div>
+        <div class="log-text"><strong>2,100 tokens locked until 20/03/2036.</strong> Conviction lock. 10 years. On-chain. Irrevocable.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo">$21K</div>
+  <span>21,000 TOKENS — SOLANA — 20.03.2026</span>
+  <span>NO ROADMAP. NO PROMISES. NO MORE TOKENS. EVER.</span>
+</footer>
+
+<script>
+  const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+  document.addEventListener('mousemove',e=>{cur2.style.left=e.clientX+'px';cur2.style.top=e.clientY+'px';setTimeout(()=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';},80);});
+</script>
+</body>
+</html>
